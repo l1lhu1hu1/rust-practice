@@ -10,3 +10,12 @@ edition = "2018"
 [[bin]]
 name = "borrow"
 path = "src/borrow.rs"
+[[bin]]
+name = "b2"
+path = "src/b2.rs"
+[[bin]]
+name = "b3"
+path = "src/b3.rs"
+[[bin]]
+name = "lifetime"
+path = "src/lifetime.rs"
