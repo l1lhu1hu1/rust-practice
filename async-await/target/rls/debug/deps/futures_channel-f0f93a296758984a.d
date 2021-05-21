@@ -1,0 +1,10 @@
+/Users/glutton/projects/rust-practice/async-await/target/rls/debug/deps/futures_channel-f0f93a296758984a.rmeta: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lock.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/queue.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/sink_impl.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/oneshot.rs
+
+/Users/glutton/projects/rust-practice/async-await/target/rls/debug/deps/futures_channel-f0f93a296758984a.d: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lock.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/queue.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/sink_impl.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/oneshot.rs
+
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lib.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/lock.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/mod.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/queue.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/mpsc/sink_impl.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-channel-0.3.15/src/oneshot.rs:

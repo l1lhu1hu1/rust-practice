@@ -1,0 +1,11 @@
+/Users/glutton/projects/rust-practice/async-await/target/rls/debug/deps/futures_core-6aa20f2aac858ed4.rmeta: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/future.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/stream.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/poll.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/atomic_waker.rs
+
+/Users/glutton/projects/rust-practice/async-await/target/rls/debug/deps/futures_core-6aa20f2aac858ed4.d: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/future.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/stream.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/poll.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/mod.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/atomic_waker.rs
+
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/lib.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/future.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/stream.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/mod.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/poll.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/mod.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.15/src/task/__internal/atomic_waker.rs:

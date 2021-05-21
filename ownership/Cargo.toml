@@ -17,5 +17,11 @@ path = "src/b2.rs"
 name = "b3"
 path = "src/b3.rs"
 [[bin]]
+name = "b4"
+path = "src/b4.rs"
+[[bin]]
+name = "b5"
+path = "src/b5.rs"
+[[bin]]
 name = "lifetime"
 path = "src/lifetime.rs"

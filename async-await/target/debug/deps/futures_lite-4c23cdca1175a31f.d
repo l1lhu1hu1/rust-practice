@@ -1,0 +1,11 @@
+/Users/glutton/projects/rust-practice/async-await/target/debug/deps/futures_lite-4c23cdca1175a31f.rmeta: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/future.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/prelude.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/stream.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/io.rs
+
+/Users/glutton/projects/rust-practice/async-await/target/debug/deps/libfutures_lite-4c23cdca1175a31f.rlib: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/future.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/prelude.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/stream.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/io.rs
+
+/Users/glutton/projects/rust-practice/async-await/target/debug/deps/futures_lite-4c23cdca1175a31f.d: /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/lib.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/future.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/prelude.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/stream.rs /Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/io.rs
+
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/lib.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/future.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/prelude.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/stream.rs:
+/Users/glutton/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.3/src/io.rs:

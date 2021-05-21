@@ -2,8 +2,8 @@ fn main() {
     let mut important_data = "Hello World".to_string();
     // 所有権を渡した場合
     important_data = calc_data(important_data);
-    // 所有権を渡さないで代わりに参照を渡す場合
     println!("{}", important_data);
+    // 所有権を渡さないで代わりに参照を渡す場合
     calc_data2(&important_data);
     println!("{}", important_data);
 }
