@@ -1,0 +1,24 @@
+[package]
+name = "rust-doc-ownership"
+version = "0.1.0"
+authors = ["glutton <koki827tt@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# [[bin]]
+# name = "b1"
+# path = "src/b1.rs"
+# [[bin]]
+# name = "b2"
+# path = "src/b2.rs"
+# [[bin]]
+# name = "b3"
+# path = "src/b3.rs"
+# [[bin]]
+# name = "b4"
+# path = "src/b4.rs"
+# [[bin]]
+# name = "b5"
+# path = "src/b5.rs"
