@@ -62,7 +62,7 @@
 - インターフェースとオブジェクトの紐付けは実行時に行われるが、RustのTraitではコンパイル時に行われる
 
 ## 参考・引用
-## Rust By Example
+### Rust By Example
 - [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
 - [Rust By Example 日本語版](https://doc.rust-jp.rs/book-ja/title-page.html)
 
