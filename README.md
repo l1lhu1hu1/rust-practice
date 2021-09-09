@@ -61,6 +61,10 @@
 - トレイトとは(未知の型(Self)のための)メソッドの集合
 - インターフェースとオブジェクトの紐付けは実行時に行われるが、RustのTraitではコンパイル時に行われる
 
+## Scoping Rules
+### self
+`&self` is sugar for `self: &Self`, where `Self` is the type of the *caller Object*
+
 ## 参考・引用
 ### Rust By Example
 - [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
