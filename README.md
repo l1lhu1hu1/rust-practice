@@ -67,6 +67,6 @@
 
 ## 参考・引用
 ### Rust By Example
-- [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
+- [Rust Book](https://doc.rust-lang.org/book/title-page.html)
 - [Rust By Example 日本語版](https://doc.rust-jp.rs/book-ja/title-page.html)
 
