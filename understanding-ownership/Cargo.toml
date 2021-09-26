@@ -14,3 +14,7 @@ path = "src/slice1.rs"
 [[bin]]
 name = "slice2"
 path = "src/slice2.rs"
+
+[[bin]]
+name = "muta"
+path = "src/mutability.rs"
