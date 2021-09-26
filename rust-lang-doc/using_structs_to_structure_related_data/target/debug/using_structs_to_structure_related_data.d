@@ -1,0 +1,1 @@
+/Users/glutton/projects/rust-practice/rust-lang-doc/using_structs_to_structure_related_data/target/debug/using_structs_to_structure_related_data: /Users/glutton/projects/rust-practice/rust-lang-doc/using_structs_to_structure_related_data/src/main.rs
