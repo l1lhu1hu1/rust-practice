@@ -1,5 +1,5 @@
 [package]
-name = "defining-modules-to-control-scope-and-privacy"
+name = "managing-growing-projects-with-packages-crates-and-modules"
 version = "0.1.0"
 authors = ["glutton <koki827tt@gmail.com>"]
 edition = "2018"
