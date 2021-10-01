@@ -1,5 +1,5 @@
 [package]
-name = "using_structs_to_structure_related_data"
+name = "using-structs-to-structure-related-data"
 version = "0.1.0"
 authors = ["glutton <koki827tt@gmail.com>"]
 edition = "2018"
