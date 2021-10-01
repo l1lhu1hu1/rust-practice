@@ -13,6 +13,10 @@ mod front_of_house {
     }
 }
 
+// 以下の書き方でも可能
+// use crate::front_of_house::hosting;
+use self::front_of_house::hosting;
+
 fn serve_order() {}
 
 mod back_of_house {
@@ -25,6 +29,8 @@ mod back_of_house {
 }
 
 pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+
     crate::front_of_house::hosting::add_to_waitlist();
     front_of_house::hosting::add_to_waitlist();
 }
