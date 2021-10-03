@@ -25,7 +25,7 @@ impl GenericVal<&str> {
 // (otherwise, T would try to look up a type named T)
 
 // GenericValのRがどんなものでも中の実装は定義される
-// implの直後のRがなければ、GenericValの後のRはジェネリック型ではなく
+// implの直後のRがなければ、GenericValの後のRはジェネリックな型ではなく
 // Rという名前の型を指定することになってしまう
 impl<R> GenericVal<R> {
     // hogeはTがどんな型であっても定義されている
@@ -33,12 +33,6 @@ impl<R> GenericVal<R> {
         "hoge called"
     }
 }
-
-// イメージ的には上のコードは以下のようにsomethingで受け取った引数を
-// GenericValの引数として与えているような感じ
-// fn something(R: type) {
-//     GenericVal(R)
-// }
 
 fn main() {
     let t = GenericVal { id: 32 };
