@@ -71,7 +71,7 @@
 単相化とはコンパイル時に使用されている具体的な型を入れることでジェネリックなコードを特定のコードに変換する過程のこと。Rustのコンパイラはコードの単相化を行う。Rustはジェネリックなコードが呼び出されている箇所全部を見て、ジェネリックなコードが呼び出されている具体的な型のコードを生成する。
 
 ### implにおけるジェネリクス
-```rs
+```
 // イメージ的にはTは引数
 // idの型がT. 外部から型を切り替えられる
 struct GenericVal<T> {
@@ -105,6 +105,49 @@ impl<R> GenericVal<R> {
     // hogeはTがどんな型であっても定義されている
     fn hoge(&self) -> &str {
         "hoge called"
+    }
+}
+```
+
+以下のようなコードは、DisplayをTraitとして実装するあらゆる型にToStringを実装している
+
+```
+impl<T: Display> ToString for T {
+    //省略...
+}
+```
+
+## トレイト
+### 引数としてのトレイト
+
+以下はSummary Traitを実装している型を引数として受け付ける例。イメージ的にはある型を継承している型のみを許す感じ
+
+```
+pub fn notify(item: &impl Summary) {
+    println!("Breaking News! {}", item.summarize());
+}
+```
+
+以下のようにジェネリクスを利用しても同じことができる
+
+```
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+### トレイトを実装している型を返す
+impl trait構文を戻り値のところで使えば、あるトレイとを実装する何らかの型を返すことができる。戻り値に制限を設けることができる。
+
+```
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
     }
 }
 ```
