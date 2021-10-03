@@ -1,8 +1,10 @@
+// イメージ的にはTは引数
+// idの型がT. 外部から型を切り替えられる
 struct GenericVal<T> {
     id: T,
 }
 
-// GenericValの型がi32であるときのみ中の実装は定義される
+// GenericValのTがi32であるときのみ中の実装は定義される
 impl GenericVal<i32> {
     // fooはTがi32であるときだけ定義されている
     fn foo(&self) {
@@ -10,7 +12,7 @@ impl GenericVal<i32> {
     }
 }
 
-// GenericValの型がcharであるときのみ中の実装は定義される
+// GenericValのTがcharであるときのみ中の実装は定義される
 impl GenericVal<&str> {
     // fooはTがcharであるときだけ定義されている
     fn foo(&self) {
@@ -22,13 +24,21 @@ impl GenericVal<&str> {
 // you must first declare a type parameter on the impl itself
 // (otherwise, T would try to look up a type named T)
 
-// GenericValの型がどんなものでも中の実装は定義される
-impl<T> GenericVal<T> {
+// GenericValのRがどんなものでも中の実装は定義される
+// implの直後のRがなければ、GenericValの後のRはジェネリック型ではなく
+// Rという名前の型を指定することになってしまう
+impl<R> GenericVal<R> {
     // hogeはTがどんな型であっても定義されている
     fn hoge(&self) -> &str {
         "hoge called"
     }
 }
+
+// イメージ的には上のコードは以下のようにsomethingで受け取った引数を
+// GenericValの引数として与えているような感じ
+// fn something(R: type) {
+//     GenericVal(R)
+// }
 
 fn main() {
     let t = GenericVal { id: 32 };
