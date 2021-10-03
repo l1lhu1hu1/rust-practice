@@ -65,8 +65,98 @@
 ### self
 `&self` is sugar for `self: &Self`, where `Self` is the type of the *caller Object*
 
+## ジェネリクス
+プログラミング言語の機能・仕様の一つ。同じプログラムコードで様々なデータ型のデータを処理できるようにする機能。ジェネリクスを用いると、特定のデータ型に決め打ちせずに処理内容を記述できる。ジェネリクスは使われるまで型が決まらないような色々な型の値を受け入れる機能を作る時に使う。
+
+単相化とはコンパイル時に使用されている具体的な型を入れることでジェネリックなコードを特定のコードに変換する過程のこと。Rustのコンパイラはコードの単相化を行う。Rustはジェネリックなコードが呼び出されている箇所全部を見て、ジェネリックなコードが呼び出されている具体的な型のコードを生成する。
+
+### implにおけるジェネリクス
+```
+// イメージ的にはTは引数
+// idの型がT. 外部から型を切り替えられる
+struct GenericVal<T> {
+    id: T,
+}
+
+// GenericValのTがi32であるときのみ中の実装は定義される
+impl GenericVal<i32> {
+    // fooはTがi32であるときだけ定義されている
+    fn foo(&self) {
+        println!("integer: {}", self.id);
+    }
+}
+
+// GenericValのTがcharであるときのみ中の実装は定義される
+impl GenericVal<&str> {
+    // fooはTがcharであるときだけ定義されている
+    fn foo(&self) {
+        println!("string: {}", self.id);
+    }
+}
+
+// if you want to write an impl block that applies for all GenericVal<T> types,
+// you must first declare a type parameter on the impl itself
+// (otherwise, T would try to look up a type named T)
+
+// GenericValのRがどんなものでも中の実装は定義される
+// implの直後のRがなければ、GenericValの後のRはジェネリックな型ではなく
+// Rという名前の型を指定することになってしまう
+impl<R> GenericVal<R> {
+    // hogeはTがどんな型であっても定義されている
+    fn hoge(&self) -> &str {
+        "hoge called"
+    }
+}
+```
+
+以下のようなコードは、DisplayをTraitとして実装するあらゆる型にToStringを実装している
+
+```
+impl<T: Display> ToString for T {
+    //省略...
+}
+```
+
+## トレイト
+### 引数としてのトレイト
+
+以下はSummary Traitを実装している型を引数として受け付ける例。イメージ的にはある型を継承している型のみを許す感じ
+
+```
+pub fn notify(item: &impl Summary) {
+    println!("Breaking News! {}", item.summarize());
+}
+```
+
+以下のようにジェネリクスを利用しても同じことができる
+
+```
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+### トレイトを実装している型を返す
+impl trait構文を戻り値のところで使えば、あるトレイとを実装する何らかの型を返すことができる。戻り値に制限を設けることができる。
+
+```
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+```
+
 ## 参考・引用
 ### Rust By Example
 - [Rust Book](https://doc.rust-lang.org/book/title-page.html)
 - [Rust By Example 日本語版](https://doc.rust-jp.rs/book-ja/title-page.html)
+- [ジェネリクス Future Architect Blog](https://future-architect.github.io/typescript-guide/generics.html)
+- [ジェネリクス IT辞典](https://e-words.jp/w/%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9.html#:~:text=%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9%E3%81%A8%E3%81%AF%E3%80%81%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E,%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%80%8D%EF%BC%88template%EF%BC%89%E3%81%A8%E3%81%84%E3%81%86%E3%80%82)
+- [Rust入門 ジェネリクス](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/8ccf20)
 
