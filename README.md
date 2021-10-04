@@ -152,6 +152,42 @@ fn returns_summarizable() -> impl Summary {
 }
 ```
 
+## ライフタイム
+### 関数とライフタイム
+関数呼び出しを行う時に、関数に与える引数の変数(参照)をどのタイミングで解放すればいいかわからない。コンパイラが関数呼び出しの時に、戻り値のライフタイムを推論することも場合によってはできる。できる場合というのは、引数が一つの場合。できない場合には、プログラム上なんとかするしかない。そこで、呼び出す関数に注釈をつける。これによって、注釈がついている引数と戻り値は同じライフタイムであることをコンパイラに伝えられる。2つ以上引数があって、そのそれぞれに注釈がついている場合には、それらのうちライフタイムが短いものが、戻り値のライフタイムとなる。
+
+```
+fn main() {
+    let z;
+    let x = "foo".to_string();
+    {
+        let y = "bar".to_string();
+        // yと引数の1つ目のライフタイムは同じで
+        // printlnがある行まで生きられないのでエラーになる
+        // 参照元の値よりも参照のライフタイムが長生きするのは許されない
+        // z = some_method(&y, &x);
+
+        z = some_method(&x, &y);
+
+        // 以下の場合だと、戻り値のライフタイムはyのライフタイムと同じになる
+        // z = hello_method(&x, &y);
+    }
+    println!("{}", z);
+}
+
+// arg2に関してwarningが出るが、コンパイルはできる
+// arg1のライフタイムが第一引数のxと同じであることになる
+// xと同じライフタイムなので、some_methodの結果はprintlnがある行まで生き続ける
+fn some_method<'a>(arg1: &'a String, arg2: &String) -> &'a String {
+    arg1
+}
+
+// 戻り値はライフタイムが短い方のライフタイムと同じになる
+fn hello_method<'a>(arg1: &'a String, arg2: &'a String) -> &'a String {
+    arg1
+}
+```
+
 ## 参考・引用
 ### Rust By Example
 - [Rust Book](https://doc.rust-lang.org/book/title-page.html)
