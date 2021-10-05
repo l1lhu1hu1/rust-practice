@@ -25,6 +25,22 @@ name = "g4"
 path = "src/g4.rs"
 
 [[bin]]
+name = "g5"
+path = "src/g5.rs"
+
+[[bin]]
+name = "g6"
+path = "src/g6.rs"
+
+[[bin]]
+name = "g7"
+path = "src/g7.rs"
+
+[[bin]]
+name = "g8"
+path = "src/g8.rs"
+
+[[bin]]
 name = "l1"
 path = "src/l1.rs"
 
