@@ -41,6 +41,10 @@ name = "g8"
 path = "src/g8.rs"
 
 [[bin]]
+name = "g9"
+path = "src/g9.rs"
+
+[[bin]]
 name = "l1"
 path = "src/l1.rs"
 

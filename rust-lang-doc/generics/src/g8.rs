@@ -24,5 +24,7 @@ fn main() {
         math: "32",
         eng: "55",
     };
+    // 多分こういうimplとtraitとstructの使い方はしない
+    // 一旦スキップする
     // s.ttt();
 }
