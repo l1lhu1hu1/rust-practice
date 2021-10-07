@@ -31,6 +31,10 @@ impl List {
             }
         }
     }
+
+    fn head(&self) -> i32 {
+        30
+    }
 }
 
 struct Point {
@@ -57,13 +61,14 @@ fn main() {
 
     println!("linked list has length {}", list.len());
     println!("{}", list.stringify());
-    let l2 = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
-    let t2 = type_of(l2);
-    println!("type of l2 is {}", t2);
-    // let r2 = l2.head();
-    // println!("{}", l2.head());
 
     println!("################################");
+    let l2 = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
+    let t2 = type_of(&l2);
+    println!("type of l2 is {}", t2);
+    println!("head: {}", l2.head());
+    println!("################################");
+
     // dropはBox関係なしに呼ばれる
     // ヒープ領域にメモリが確保される
     let p = Box::new(Point { x: 20, y: 30 });

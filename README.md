@@ -196,4 +196,5 @@ fn hello_method<'a>(arg1: &'a String, arg2: &'a String) -> &'a String {
 - [ジェネリクス IT辞典](https://e-words.jp/w/%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9.html#:~:text=%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9%E3%81%A8%E3%81%AF%E3%80%81%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E,%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%80%8D%EF%BC%88template%EF%BC%89%E3%81%A8%E3%81%84%E3%81%86%E3%80%82)
 - [Rust入門 ジェネリクス](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/8ccf20)
 - [Rustの所有権、参照、ライフタイムの初歩](https://numb86-tech.hatenablog.com/entry/2021/05/22/195352)
+- [とほほのRust入門](https://www.tohoho-web.com/ex/rust.html#heap)
 
