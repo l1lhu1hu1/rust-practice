@@ -188,6 +188,37 @@ fn hello_method<'a>(arg1: &'a String, arg2: &'a String) -> &'a String {
 }
 ```
 
+## マクロ
+マクロは、コンパイラがコードの意味を解釈する前に展開され、手で書いたよりも多くのコードを生成する。大きく分けて、Rustのマクロには以下の2種類がある。
+- 宣言的マクロ(Declarative macro)
+- 手続き的マクロ(Procedural macro)
+
+### 宣言的マクロ
+パターンマッチングを行い、マッチしたコードをほかのコードで置き換える。
+
+```
+macro_rules! hoge {
+    ($x: expr) => {
+        println!("{}", $x)
+    };
+}
+```
+
+### 手続き的マクロ
+コードを入力として受け取り、そのコードに対して作用し、出力としてコードを生成する。以下のコードはPancakesにHelloMacroを新たに実装することを表したコード。
+
+```
+use hello_macro::HelloMacro;
+use hello_macro_derive::HelloMacro;
+
+#[derive(HelloMacro)]
+struct Pancakes;
+
+fn main() {
+    Pancakes::hello_macro();
+}
+```
+
 ## 参考・引用
 ### Rust By Example
 - [Rust Book](https://doc.rust-lang.org/book/title-page.html)
@@ -196,4 +227,4 @@ fn hello_method<'a>(arg1: &'a String, arg2: &'a String) -> &'a String {
 - [ジェネリクス IT辞典](https://e-words.jp/w/%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9.html#:~:text=%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9%E3%81%A8%E3%81%AF%E3%80%81%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E,%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%80%8D%EF%BC%88template%EF%BC%89%E3%81%A8%E3%81%84%E3%81%86%E3%80%82)
 - [Rust入門 ジェネリクス](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/8ccf20)
 - [Rustの所有権、参照、ライフタイムの初歩](https://numb86-tech.hatenablog.com/entry/2021/05/22/195352)
-
+- [マクロ](https://doc.rust-jp.rs/book-ja/ch19-06-macros.html)
