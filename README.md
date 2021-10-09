@@ -220,6 +220,17 @@ fn main() {
 ```
 
 ## enum
+`main.rs`と`e2.rs`を詳しくはみる。
+
+```
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+```
+
 ### option
 - nullとはそこに何も値がないことを意味する値
 - nullに対して存在しないメソッドの呼び出しを行ったりするとエラーになる
