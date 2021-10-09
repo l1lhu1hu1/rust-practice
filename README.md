@@ -235,6 +235,10 @@ let y: Option<i8> = Some(5);
 let sum = x + y;
 ```
 
+### match
+- パターンの表現力とコンパイラが全てのありうるパターンを処理しているかを確認してくれるという事実に由来します。
+
+
 ## 参考・引用
 ### Rust By Example
 - [Rust Book](https://doc.rust-lang.org/book/title-page.html)
