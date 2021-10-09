@@ -1,0 +1,28 @@
+[package]
+name = "relearn-enum-struct"
+version = "0.1.0"
+authors = ["glutton <koki827tt@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+[[bin]]
+name = "e1"
+path = "src/e1.rs"
+
+[[bin]]
+name = "e2"
+path = "src/e2.rs"
+
+[[bin]]
+name = "e3"
+path = "src/e3.rs"
+
+[[bin]]
+name = "e4"
+path = "src/e4.rs"
+
+[[bin]]
+name = "e5"
+path = "src/e5.rs"
