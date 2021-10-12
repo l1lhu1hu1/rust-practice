@@ -8,3 +8,7 @@ edition = "2018"
 
 [dependencies]
 im = "15.0.0"
+
+[[bin]]
+name = "l1"
+path = "src/l1.rs"
