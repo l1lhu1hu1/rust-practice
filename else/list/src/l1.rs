@@ -1,12 +1,17 @@
 use crate::List::*;
+// これでも可
+// use crate::List::{Cons, Nil};
 // 以下のように一々 List::variantってするのがめんどくさい
 // useを使うことで、このプログラム内ではNilだけ、Consだけで使えるようになる
-// List::Nil
-// List::Cons(_, ref tail) => 1 + tail.len()
 
 enum List {
     Cons(u32, Box<List>),
     Nil,
+}
+
+fn type_of<T>(_: T) -> String {
+    let a = std::any::type_name::<T>();
+    return a.to_string();
 }
 
 impl List {
@@ -14,21 +19,41 @@ impl List {
         Nil
     }
     fn prepend(self, elem: u32) -> List {
-        // TODO Box以外でもこれは実装できないのかな?
         Cons(elem, Box::new(self))
     }
 
+    // 再帰的にlenは呼ばれている
+    // Cons(val1, Cons(val2, Cons(val3, Cons(val4, Cons(...)))))
     fn len(&self) -> u32 {
+        println!("called");
         match *self {
-            // 最後に追加された値、tail(Box型)
-            Cons(_, ref tail) => 1 + tail.len(),
+            Cons(head, ref tail) => {
+                println!("head: {}", head);
+                1 + tail.len()
+            }
             Nil => 0,
         }
     }
-    // TODO list.pop(最初の要素)を実装する
-    // TODO list.pop(最後の要素)を実装する
 
-    // 暗黙的な参照外しが発生するので、*selfでもselfでも大丈夫
+    // opをdepthに変える
+    fn random(&self, op: i32) -> Box<List> {
+        if op == 1 {
+            match self {
+                Cons(_, tail) => tail,
+                Nil => &Box::new(Nil),
+            };
+        }
+        Box::new(Nil)
+    }
+
+    fn pop_front(self: Self) -> Box<List> {
+        match self {
+            Cons(_, tail) => tail,
+            Nil => Box::new(Nil),
+        }
+    }
+    // TODO fn pop_back() -> List {}
+
     // &Self.fieldができるのも同じ理由
     fn stringify(&self) -> String {
         match *self {
@@ -39,21 +64,6 @@ impl List {
                 format!("Nil")
             }
         }
-    }
-}
-
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-impl Point {
-    fn print(&self) {
-        println!("hello, {}", self.x);
-    }
-
-    fn new(x: i32, y: i32) -> Self {
-        Self { x, y }
     }
 }
 
@@ -93,9 +103,15 @@ fn main() {
     // lenとstringifyにはborrowしている
     println!("linked list has length: {}", list.len());
     println!("{}", list.stringify());
-    println!("##################################");
-    let p = Point::new(32, 64);
-    p.print();
+    println!("################pop start##################");
+    println!("{}", list.stringify());
+    let list = list.pop_front();
+    println!("{}", list.stringify());
+    let list = list.pop_front();
+    println!("{}", list.stringify());
+    let list = list.pop_front();
+    println!("{}", list.stringify());
+    println!("################pop end##################");
     println!("##################################");
     let a = 123;
     let b = &a;
