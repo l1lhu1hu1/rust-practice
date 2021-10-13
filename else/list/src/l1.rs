@@ -29,11 +29,11 @@ impl List {
         }
     }
 
-    // TODO Box<List>ではなくて、Listで返すようにしたい
-    fn pop_front(self: Self) -> Box<List> {
+    fn pop_front(self: Self) -> List {
         match self {
-            Cons(_, tail) => tail,
-            Nil => Box::new(Nil),
+            // boxの中身をコピーしたい(List型の値が欲しい)ので*tailにしている
+            Cons(_, tail) => *tail,
+            Nil => Nil,
         }
     }
 
@@ -41,9 +41,6 @@ impl List {
         let mut v: Vec<u32> = Vec::new();
         self.get_tail_num(&mut v);
         v.remove(v.len() - 1);
-        // for a in &v {
-        //     println!("a: {}", a);
-        // }
         v.reverse();
         let mut list = List::new();
         for a in &v {
@@ -53,16 +50,13 @@ impl List {
     }
 
     // Nilの一つ手前の値を削除する
-    // 本当は最後の値だけ返せばいいが、vectorにいれる方が今の時点では簡単だったのでこっちで一旦実装した
     fn get_tail_num(self: Self, v: &mut Vec<u32>) {
         match self {
             Cons(head, tail) => {
                 v.push(head);
                 tail.get_tail_num(v);
             }
-            Nil => {
-                println!("##################################");
-            }
+            Nil => {}
         }
     }
 
@@ -105,28 +99,19 @@ impl Lang {
 }
 
 fn main() {
+    println!("################pop front start##################");
     let mut list = List::new();
     // list.prependするときは所有権を渡している
     // 戻り値でlistの所有権が返ってくる
     list = list.prepend(1);
     list = list.prepend(2);
     list = list.prepend(3);
-
     // lenとstringifyにはborrowしている
     println!("linked list has length: {}", list.len());
     println!("{}", list.stringify());
-    println!("################pop front start##################");
-    println!("{}", list.stringify());
-    println!("list.len: {}", list.len());
+    let list = list.pop_front();
     let list = list.pop_front();
     println!("{}", list.stringify());
-    println!("list.len: {}", list.len());
-    let list = list.pop_front();
-    println!("{}", list.stringify());
-    println!("list.len: {}", list.len());
-    let list = list.pop_front();
-    println!("{}", list.stringify());
-    println!("list.len: {}", list.len());
     println!("################pop front end##################");
     println!("################pop back start##################");
     let mut l2 = List::new();
@@ -134,8 +119,9 @@ fn main() {
     l2 = l2.prepend(2);
     l2 = l2.prepend(3);
     l2 = l2.pop_back();
+    l2 = l2.pop_back();
     println!("after popback: {}", l2.stringify());
-    println!("################pop backend##################");
+    println!("################pop back end##################");
     let a = 123;
     let b = &a;
     // どっちとも123になる
