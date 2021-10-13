@@ -9,11 +9,6 @@ enum List {
     Nil,
 }
 
-fn type_of<T>(_: T) -> String {
-    let a = std::any::type_name::<T>();
-    return a.to_string();
-}
-
 impl List {
     fn new() -> List {
         Nil
@@ -25,7 +20,6 @@ impl List {
     // 再帰的にlenは呼ばれている
     // Cons(val1, Cons(val2, Cons(val3, Cons(val4, Cons(...)))))
     fn len(&self) -> u32 {
-        println!("called");
         match *self {
             Cons(head, ref tail) => {
                 println!("head: {}", head);
@@ -35,24 +29,42 @@ impl List {
         }
     }
 
-    // opをdepthに変える
-    fn random(&self, op: i32) -> Box<List> {
-        if op == 1 {
-            match self {
-                Cons(_, tail) => tail,
-                Nil => &Box::new(Nil),
-            };
-        }
-        Box::new(Nil)
-    }
-
+    // TODO Box<List>ではなくて、Listで返すようにしたい
     fn pop_front(self: Self) -> Box<List> {
         match self {
             Cons(_, tail) => tail,
             Nil => Box::new(Nil),
         }
     }
-    // TODO fn pop_back() -> List {}
+
+    fn pop_back(self: Self) -> List {
+        let mut v: Vec<u32> = Vec::new();
+        self.get_tail_num(&mut v);
+        v.remove(v.len() - 1);
+        // for a in &v {
+        //     println!("a: {}", a);
+        // }
+        v.reverse();
+        let mut list = List::new();
+        for a in &v {
+            list = list.prepend(*a);
+        }
+        list
+    }
+
+    // Nilの一つ手前の値を削除する
+    // 本当は最後の値だけ返せばいいが、vectorにいれる方が今の時点では簡単だったのでこっちで一旦実装した
+    fn get_tail_num(self: Self, v: &mut Vec<u32>) {
+        match self {
+            Cons(head, tail) => {
+                v.push(head);
+                tail.get_tail_num(v);
+            }
+            Nil => {
+                println!("##################################");
+            }
+        }
+    }
 
     // &Self.fieldができるのも同じ理由
     fn stringify(&self) -> String {
@@ -103,16 +115,27 @@ fn main() {
     // lenとstringifyにはborrowしている
     println!("linked list has length: {}", list.len());
     println!("{}", list.stringify());
-    println!("################pop start##################");
+    println!("################pop front start##################");
     println!("{}", list.stringify());
+    println!("list.len: {}", list.len());
     let list = list.pop_front();
     println!("{}", list.stringify());
+    println!("list.len: {}", list.len());
     let list = list.pop_front();
     println!("{}", list.stringify());
+    println!("list.len: {}", list.len());
     let list = list.pop_front();
     println!("{}", list.stringify());
-    println!("################pop end##################");
-    println!("##################################");
+    println!("list.len: {}", list.len());
+    println!("################pop front end##################");
+    println!("################pop back start##################");
+    let mut l2 = List::new();
+    l2 = l2.prepend(1);
+    l2 = l2.prepend(2);
+    l2 = l2.prepend(3);
+    l2 = l2.pop_back();
+    println!("after popback: {}", l2.stringify());
+    println!("################pop backend##################");
     let a = 123;
     let b = &a;
     // どっちとも123になる
