@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::ErrorKind;
 
+// simpler version of e1
 fn main() {
     let f = File::open("hello.txt").unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
