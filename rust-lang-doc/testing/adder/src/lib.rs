@@ -1,4 +1,4 @@
-fn add_two(x: i32) -> i32 {
+pub fn add_two(x: i32) -> i32 {
     if x > 100 {
         panic!("panicked val over 100")
     } else if x < 0 {
@@ -35,6 +35,7 @@ mod tests {
         assert!(r.contains("lilhuihui"));
     }
 
+    #[ignore]
     #[test]
     fn test_greeting() {
         let r = greeting();
