@@ -26,3 +26,11 @@ path = "src/s4.rs"
 [[bin]]
 name = "s5"
 path = "src/s5.rs"
+
+[[bin]]
+name = "s6"
+path = "src/s6.rs"
+
+[[bin]]
+name = "s7"
+path = "src/s7.rs"
