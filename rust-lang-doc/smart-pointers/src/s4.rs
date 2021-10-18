@@ -3,8 +3,8 @@ enum List {
     Nil,
 }
 
-use List::*;
 use std::rc::Rc;
+use List::*;
 
 fn main() {
     let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));

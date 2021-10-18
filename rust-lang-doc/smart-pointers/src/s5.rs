@@ -4,9 +4,9 @@ enum List {
     Nil,
 }
 
-use List::{Cons, Nil};
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
+use List::{Cons, Nil};
 
 fn main() {
     let value = Rc::new(RefCell::new(5));
