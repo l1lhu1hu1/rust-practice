@@ -1,0 +1,13 @@
+[package]
+name = "devtools"
+version = "0.1.0"
+authors = ["glutton <koki827tt@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clippy = "0.0.302"
+[[bin]]
+name = "c1"
+path = "src/c1.rs"
